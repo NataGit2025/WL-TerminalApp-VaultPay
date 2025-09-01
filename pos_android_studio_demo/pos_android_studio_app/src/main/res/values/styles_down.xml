@@ -185,7 +185,7 @@
 
     <style name="Custom_MaterialCalendar.Fullscreen" parent="@style/Widget.MaterialComponents.MaterialCalendar">
         <item name="android:windowFullscreen">false</item>
-        <item name="rangeFillColor">#DFE7FA</item>
+        <item name="rangeFillColor">#BFBFBF</item>
         <item name="dayStyle">@style/CustomWidget_Day</item>
         <item name="daySelectedStyle">@style/CustomSelected</item>
     </style>

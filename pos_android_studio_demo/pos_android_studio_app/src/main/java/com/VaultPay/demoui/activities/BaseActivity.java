@@ -378,14 +378,24 @@ public abstract class BaseActivity extends AppCompatActivity implements ITicket,
     public void showAlert(String type, String title, String... desc) {
         if (isActivityFinished(this))
             return;
-        View layout = ConfigToastLayout(type, title, desc);
-        Toast toast = new Toast(getApplicationContext());
-        toast.setGravity(Gravity.FILL_HORIZONTAL, 0, 0);
-        toast.setGravity(Gravity.TOP | Gravity.FILL_HORIZONTAL, 0, 0);
-        toast.setDuration(Toast.LENGTH_LONG);
-        toast.setView(layout);
+        final Handler handler = new Handler();
+        int[] count = { 0 };
 
-        toast.show();
+        final Runnable runnable = new Runnable() {
+            public void run() {
+                if (count[0]++ < 2) {
+                    View layout = ConfigToastLayout(type, title, desc);
+                    Toast toast = new Toast(getApplicationContext());
+                    toast.setGravity(Gravity.FILL_HORIZONTAL, 0, 0);
+                    toast.setGravity(Gravity.TOP | Gravity.FILL_HORIZONTAL, 0, 0);
+                    toast.setDuration(Toast.LENGTH_LONG);
+                    toast.setView(layout);
+                    toast.show();
+                    handler.postDelayed(this, 3000);
+                }
+            }
+        };
+        handler.post(runnable);
     }
 
     private View ConfigToastLayout(String type, String title, String... desc) {

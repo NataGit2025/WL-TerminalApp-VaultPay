@@ -49,6 +49,19 @@
             android:gravity="center"
             android:text="El cobro de la tarjeta fue anulado correctamente."
             android:textSize="30px" />
+
+        <TextView
+            android:id="@+id/txtprosaerror"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/dm_sans_medium"
+            android:gravity="center"
+            android:textColor="@color/ep_crt_error"
+            android:textSize="35px"
+            android:text="" />
+
     </LinearLayout>
 
     <LinearLayout
